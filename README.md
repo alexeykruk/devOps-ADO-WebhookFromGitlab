@@ -2,7 +2,7 @@
 
 In Gitlab let's create **Webhook**
 
-![Gitlab Webhooks](./images/img02.jpg)
+![Gitlab Webhooks](./doc/images/img02.jpg)
 
 URL:
 https://dev.azure.com/*PROJECT_NAME*/_apis/public/distributedtask/webhooks/gitlab-push-webhook/?api-version=6.0-preview
@@ -14,7 +14,7 @@ https://dev.azure.com/*PROJECT_NAME*/_apis/public/distributedtask/webhooks/gitla
 
 Our Project hook
 </br>
-![Project Webhook](./images/img03.jpg)
+![Project Webhook](./doc/images/img03.jpg)
 
 &nbsp;
 
@@ -24,9 +24,9 @@ Our Project hook
 
 Create ADO Service connection with type **Incoming WebHook**
 
-![Service connection](./images/img04.jpg)
+![Service connection](./doc/images/img04.jpg)
 
-![Service connection](./images/img01.jpg)
+![Service connection](./doc/images/img01.jpg)
 
 
 ### azure-pipelines.yml
