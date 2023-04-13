@@ -1,0 +1,29 @@
+resources:
+  webhooks:
+  - webhook: WebHook
+    connection: gitlab-push-webhook
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+steps:
+
+- task: Bash@3
+  condition: eq('${{ parameters.WebHook.repository.name }}', 'gitlab-repo-name')
+  displayName: 'Run - Functions Docker pipeline'
+  inputs:
+    targetType: 'inline'
+    script: |
+      az pipelines run --org https://dev.azure.com/ADO_PROJECT_NAME --name 'Functions Docker pipeline' --project 'PROJECT_NAME'
+  env:
+    AZURE_DEVOPS_EXT_PAT: $(System.AccessToken)
+
+- task: Bash@3
+  condition: eq('${{ parameters.WebHook.repository.name }}', 'gitlab-repo-name2')
+  displayName: 'Run - DataBricks Python package pipeline'
+  inputs:
+    targetType: 'inline'
+    script: |
+      az pipelines run --org https://dev.azure.com/ADO_PROJECT_NAME --name 'DataBricks Python package pipeline' --project 'PROJECT_NAME'
+  env:
+    AZURE_DEVOPS_EXT_PAT: $(System.AccessToken)
